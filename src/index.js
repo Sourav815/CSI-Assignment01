@@ -1,8 +1,21 @@
-import express from "express";
-let app = express();
-let PORT = process.env.PORT || 9000;
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
 
-// First Problem solution : 
-app.get("/hello-world",(req,res)=>res.json({"Message":"Hello From Node.Js"}));
+const server = http.createServer((req, res) => {
+  const filePath = path.join(__dirname, "index.html");
+  fs.readFile(filePath, (err, data) => {
+    if (!err) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(data);
+    } else {
+      res.writeHead(400);
+      res.write("file not found");
+      res.end();
+    }
+  });
+});
 
-app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
+server.listen(3000, () => {
+  console.log("Server running at PORT: 3000/");
+});
