@@ -1,0 +1,22 @@
+{
+  "name": "assignment01",
+  "version": "1.0.0",
+  "description": "This is the first Assignment based on 'Introduction to Node.js'.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "keywords": [
+    "Node",
+    "npm",
+    "nodemon"
+  ],
+  "author": "Sourav Bhunia",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.3"
+  }
+}
